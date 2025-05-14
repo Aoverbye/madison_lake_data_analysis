@@ -1,0 +1,89 @@
+---
+title: "data_cleaning"
+format: html
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+# Load the data
+lake_ice <- read_csv(here("data", "lake_ice.csv"))
+air_temp <- read_csv(here("data", "air_temp.csv"))
+```
+
+# Started collecting snow depth cm in 1904
+
+```{r}
+unique(lake_ice$comments)
+```
+
+```{r}
+lake_ice <- lake_ice %>%
+  select(lakeid, year, ice_on, ice_off, duration)
+
+air_temp <- air_temp %>% 
+  rename(year = year4)
+
+# Only include columns that were sampled consistently 
+air_temp <- air_temp  %>%
+  select(year, sampledate,
+         max_air_temp_adjusted,
+         min_air_temp_adjusted,
+         range_air_temp_adjusted,
+         precip_raw_mm,
+         snow_raw_cm)
+```
+
+### Cleaning air_temp
+
+```{r}
+# Remove any columns before 1904 because snow data was not collect in those years
+air_temp_clean <- air_temp %>%
+  filter(year >= 1904)
+```
+
+
+### Cleaning lake_ice
+
+```{r}
+# Remove values before 1904 to match other dataset
+lake_ice_clean <- lake_ice %>%
+  filter(year >= 1904)
+```
+
+# Creating the third data table
+
+year, sampledate,
+         max_air_temp_adjusted,
+         min_air_temp_adjusted,
+         range_air_temp_adjusted,
+         precip_raw_mm
+
+```{r}
+# Creating the third data set
+year_tbl <- air_temp_clean %>%
+  group_by(year) %>%
+  summarise(
+    avg_max_air_temp_adjusted = mean(max_air_temp_adjusted, na.rm=TRUE),
+    avg_min_air_temp_adjusted = mean(min_air_temp_adjusted, na.rm=TRUE),
+    avg_precip_raw_mm            = mean(precip_raw_mm,        na.rm=TRUE),
+    avg_snow_raw_cm              = mean(snow_raw_cm,          na.rm=TRUE),
+  ) %>%
+  # bring in the ice‐duration summary
+  left_join(
+    lake_ice %>% 
+      group_by(year) %>% 
+      summarise(avg_ice_duration = mean(duration, na.rm=TRUE)),
+    by = "year"
+  )
+```
+
+```{r}
+write_csv(year_tbl, here("data","year.csv"))
+write_csv(lake_ice_clean, here("data", "lake_ice_clean.csv"))
+write_csv(air_temp_clean, here("data", "air_temp_clean.csv"))
+```
