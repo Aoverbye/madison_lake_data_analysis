@@ -25,12 +25,9 @@ unique(lake_ice$comments)
 lake_ice <- lake_ice %>%
   select(lakeid, year, ice_on, ice_off, duration)
 
-air_temp <- air_temp %>% 
-  rename(year = year4)
-
 # Only include columns that were sampled consistently 
 air_temp <- air_temp  %>%
-  select(year, sampledate,
+  select(year4, sampledate,
          max_air_temp_adjusted,
          min_air_temp_adjusted,
          range_air_temp_adjusted,
@@ -39,6 +36,12 @@ air_temp <- air_temp  %>%
 ```
 
 ### Cleaning air_temp
+
+```{r}
+air_temp <- air_temp %>%
+  rename(year = year4)
+```
+
 
 ```{r}
 # Remove any columns before 1904 because snow data was not collect in those years
@@ -57,12 +60,6 @@ lake_ice_clean <- lake_ice %>%
 
 # Creating the third data table
 
-year, sampledate,
-         max_air_temp_adjusted,
-         min_air_temp_adjusted,
-         range_air_temp_adjusted,
-         precip_raw_mm
-
 ```{r}
 # Creating the third data set
 year_tbl <- air_temp_clean %>%
@@ -71,11 +68,11 @@ year_tbl <- air_temp_clean %>%
     avg_max_air_temp_adjusted = mean(max_air_temp_adjusted, na.rm=TRUE),
     avg_min_air_temp_adjusted = mean(min_air_temp_adjusted, na.rm=TRUE),
     avg_precip_raw_mm            = mean(precip_raw_mm,        na.rm=TRUE),
-    avg_snow_raw_cm              = mean(snow_raw_cm,          na.rm=TRUE),
+    avg_snow_raw_cm              = mean(snow_raw_cm,          na.rm=TRUE)
   ) %>%
   # bring in the ice‐duration summary
   left_join(
-    lake_ice %>% 
+    lake_ice_clean %>% 
       group_by(year) %>% 
       summarise(avg_ice_duration = mean(duration, na.rm=TRUE)),
     by = "year"
@@ -83,7 +80,7 @@ year_tbl <- air_temp_clean %>%
 ```
 
 ```{r}
-write_csv(year_tbl, here("data","year.csv"))
-write_csv(lake_ice_clean, here("data", "lake_ice_clean.csv"))
-write_csv(air_temp_clean, here("data", "air_temp_clean.csv"))
+write_csv(drop_na(year_tbl), here("data", "year.csv"))
+write_csv(drop_na(lake_ice_clean), here("data", "lake_ice_clean.csv"))
+write_csv(drop_na(air_temp_clean), here("data", "air_temp_clean.csv"))
 ```
