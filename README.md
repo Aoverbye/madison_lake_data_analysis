@@ -4,41 +4,28 @@ This repository contains data cleaning, querying, and brief analysis of data rel
 
 ### Repository Structure
  
-├─ .gitignore
+madison_lake_data_analysis
+│
+├── data/
+│   ├── air_temp.csv
+│   ├── air_temp_clean.csv
+│   ├── lake_ice.csv
+│   ├── lake_ice_clean.csv
+│   ├── year.csv
+│   ├── wisconsin_data.sql
+│   ├── duckdb.exe
+│   └── dependencies/
+│
+├── dependencies/
+├── data_cleaning.qmd
+├── graphs.qmd
+├── sql_query.sql
+├── wisconsin_data.db
+├── duckdb.exe
+├── madison_lake_data_analysis.Rproj
+├── .gitignore
+└── README.md
 
-├─ README.md
-
-├─ data
-
-│  ├─ air_temp.csv
-
-│  ├─ air_temp_clean.csv
-
-│  ├─ dependencies
-
-│  ├─ duckdb.exe
-
-│  ├─ lake_ice.csv
-
-│  ├─ lake_ice_clean.csv
-
-│  ├─ wisconsin_data.sql
-
-│  └─ year.csv
-
-├─ data_cleaning.qmd
-
-├─ dependencies
-
-├─ duckdb.exe
-
-├─ graphs.qmd
-
-├─ madison_lake_data_analysis.Rproj
-
-├─ sql_query.sql
-
-└─ wisconsin_data.db
 
 ### Order of operations
 
