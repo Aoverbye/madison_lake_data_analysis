@@ -39,7 +39,7 @@ COPY lake_ice FROM 'lake_ice_clean.csv' (HEADER TRUE);
 
 SELECT 
   year, 
-  avg_min_air_temp_adjusted, 
+  avg_snow_raw_cm, 
   avg_ice_duration
 FROM year
 ORDER BY year;
