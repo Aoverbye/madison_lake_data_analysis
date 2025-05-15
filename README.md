@@ -34,8 +34,12 @@ madison_lake_data_analysis
 ## Data
 
 Madison Wisconsin Daily Meteorological Data 1869 - current
+
 This database contains information about meteorological variables collected near Madison, Wisconsin. It includes data on average precipitation, air temperature values, adjusted air temperature values, and snow depth information including the dates when the data was collected. 
+
+
 North Temperate Lakes LTER: Ice Duration - Madison Lakes Area 1853 - current
+
 This dataset contains information about the duration of ice sheets on north temperate lakes near Madison, Wisconsin. It includes the starting and ending date of freezeovers, lake identification data, and the number of days the lake remained frozen.
 
 ## Dependencies
