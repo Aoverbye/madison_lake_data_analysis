@@ -20,9 +20,16 @@ madison_lake_data_analysis
 └── wisconsin_data.db
 ```
 
-### Order of operations
+## Order of Operations
 
-To do this analysis, I began by downloading both data sets and cleaning the data in the data_cleaning.qmd file. Once the data was cleaned, I downloaded it to my computer and created empty tables in the wisconsin_data.sql file. The wisconsin_data.sql file can be found in the data folder. The empty tables were then populated with data from the data_cleaning.qmd, uploaded to Duckdb and queried. Lastly, the data was loaded from Duckdb into the graphs.qmd file where it was visualized.   
+**1. Data Cleaning:** Raw datasets were loaded and cleaned using data_cleaning.qmd.
+
+**2. Database Setup:** Cleaned data was saved locally and structured tables were created in wisconsin_data.sql. This SQL file contains the schema and import logic and is located in the data folder.
+
+**3. Database Population:** Cleaned CSVs were imported into DuckDB using the schema. Queries were then written and tested in SQL.
+
+**4. Visualization:** Queried results from DuckDB were imported into graphs.qmd for plotting and visualizarion
+  
 
 ## Data
 
@@ -31,7 +38,7 @@ This database contains information about meteorological variables collected near
 North Temperate Lakes LTER: Ice Duration - Madison Lakes Area 1853 - current
 This dataset contains information about the duration of ice sheets on north temperate lakes near Madison, Wisconsin. It includes the starting and ending date of freezeovers, lake identification data, and the number of days the lake remained frozen.
 
-### Dependencies
+## Dependencies
 
 Required systems and dependencies can be found in the dependencies.txt file. 
 
