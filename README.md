@@ -48,7 +48,7 @@ Required systems and dependencies can be found in the dependencies.txt file. 
 
 ## Acknowledgements
 
-This project was done as part of [The Bren School Master of Environmental Data Science}(https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program) degree program as part of the [EDS 213: Databases and Data Management](https://ucsb-library-research-data-services.github.io/bren-eds213/) class. I would like to thank the instructors of this class, Dr. Julien Brun, Greg Janée, and Annie Adams for their instruction and guidance during this process.
+This project was done as part of [The Bren School Master of Environmental Data Science](https://bren.ucsb.edu/masters-programs/master-environmental-data-science/academics-meds-program) degree program as part of the [EDS 213: Databases and Data Management](https://ucsb-library-research-data-services.github.io/bren-eds213/) class. I would like to thank the instructors of this class, Dr. Julien Brun, Greg Janée, and Annie Adams for their instruction and guidance during this process.
 
 ## References 
 
