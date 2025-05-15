@@ -1,26 +1,43 @@
-# Analysos of Madison Lake and Meterological Data
+# Analysis of Madison Lake and Meterological Data
 
 This repository contains data cleaning, querying, and brief analysis of data relating to meteorological and lake ice cover duration in Madison, Wisconsin. 
 
 ### Repository Structure
  
 ├─ .gitignore
+
 ├─ README.md
+
 ├─ data
+
 │  ├─ air_temp.csv
+
 │  ├─ air_temp_clean.csv
+
 │  ├─ dependencies
+
 │  ├─ duckdb.exe
+
 │  ├─ lake_ice.csv
+
 │  ├─ lake_ice_clean.csv
+
 │  ├─ wisconsin_data.sql
+
 │  └─ year.csv
+
 ├─ data_cleaning.qmd
+
 ├─ dependencies
+
 ├─ duckdb.exe
+
 ├─ graphs.qmd
+
 ├─ madison_lake_data_analysis.Rproj
+
 ├─ sql_query.sql
+
 └─ wisconsin_data.db
 
 ### Order of operations
