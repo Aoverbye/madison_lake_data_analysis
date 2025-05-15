@@ -84,3 +84,6 @@ write_csv(drop_na(year_tbl), here("data", "year.csv"))
 write_csv(drop_na(lake_ice_clean), here("data", "lake_ice_clean.csv"))
 write_csv(drop_na(air_temp_clean), here("data", "air_temp_clean.csv"))
 ```
+
+
+
