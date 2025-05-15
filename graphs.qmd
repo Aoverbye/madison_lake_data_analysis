@@ -1,6 +1,7 @@
 ---
 title: "graphs"
 format: html
+author: Amanda Overbye
 editor_options: 
   chunk_output_type: console
 ---
@@ -18,7 +19,7 @@ library(ggplot2)
 ### Call data in from Duckdb
 
 ```{r}
-con <- dbConnect(duckdb(), dbdir = "D:/MEDS/madison_lake_data_analysis/wisconsin_data.duckdb")
+con <- dbConnect(duckdb(), dbdir = "D:/MEDS/madison_lake_data_analysis/wisconsin_data.db")
 dbListTables(con)
 ```
 
@@ -26,7 +27,7 @@ dbListTables(con)
 
 ```{r}
 # Query data
-ice_temp_data <- dbGetQuery(con, "SELECT year, avg_snow_raw_cm, avg_ice_duration
+ice_snow_data <- dbGetQuery(con, "SELECT year, avg_snow_raw_cm, avg_ice_duration
   FROM year
   ORDER BY year
 ")
@@ -34,15 +35,15 @@ ice_temp_data <- dbGetQuery(con, "SELECT year, avg_snow_raw_cm, avg_ice_duration
 
 ```{r}
 # View queried data
-head(ice_temp_data)
+ice_snow_data
 ```
 
 ### Visualize data
 
 ```{r}
-ggplot(ice_temp_data) +
+ggplot(ice_snow_data) +
   # Points for snow vs. ice
-  geom_point(aes(x = avg_snow_raw_cm, y = avg_ice_duration, color = "Snowfall (cm) vs Ice Duration"),
+  geom_point(aes(x = avg_snow_raw_cm, y = avg_ice_duration, color = "Average Annual Snowfall (cm) and Ice Duration"),
              size = 3, alpha = 0.7) +
   # Trend line
   geom_smooth(aes(x = avg_snow_raw_cm, y = avg_ice_duration, color = "Trend Line"),
@@ -51,13 +52,13 @@ ggplot(ice_temp_data) +
   scale_color_manual(
     name = "Legend",
     values = c(
-      "Snowfall (cm) vs Ice Duration" = "#2c7fb8",
+      "Average Annual Snowfall (cm) and Ice Duration" = "#2c7fb8",
       "Trend Line" = "#08306b"
     )
   ) +
   # Labels and theme
   labs(
-    title = "Snowfall vs. Ice Duration",
+    title = "Average Annual Snowfall vs. Ice Duration On Wisconsin Lakes",
     x = "Snowfall (cm)",
     y = "Ice Duration (days)"
   ) +
