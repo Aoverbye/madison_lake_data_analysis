@@ -1,6 +1,6 @@
-# Analysis of Madison Lake and Meterological Data
+# Analysis of Lake Ice and Meterological Data In Madison, Wisconsin
 
-This repository contains data cleaning, querying, and brief analysis of data relating to meteorological and lake ice cover duration in Madison, Wisconsin. 
+This repository contains the data cleaning, SQL querying, and basic visual analysis of meteorological and lake ice cover duration data collected in Madison, Wisconsin.
 
 ### Repository Structure
 ``` 
