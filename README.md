@@ -8,14 +8,12 @@ madison_lake_data_analysis
 ├── data
 │   ├── air_temp.csv
 │   ├── air_temp_clean.csv
-│   ├── duckdb.exe
 │   ├── lake_ice.csv
 │   ├── lake_ice_clean.csv
 │   ├── wisconsin_data.sql
 │   └── year.csv
 ├── data_cleaning.qmd
 ├── dependencies
-├── duckdb.exe
 ├── graphs.qmd
 ├── madison_lake_data_analysis.Rproj
 ├── README.md
