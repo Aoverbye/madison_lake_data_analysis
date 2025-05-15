@@ -3,7 +3,7 @@
 This repository contains data cleaning, querying, and brief analysis of data relating to meteorological and lake ice cover duration in Madison, Wisconsin. 
 
 ### Repository Structure
- 
+``` 
 madison_lake_data_analysis
 ├── data
 │   ├── air_temp.csv
@@ -20,7 +20,7 @@ madison_lake_data_analysis
 ├── madison_lake_data_analysis.Rproj
 ├── README.md
 └── wisconsin_data.db
-
+```
 
 ### Order of operations
 
